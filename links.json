@@ -1,15 +1,9 @@
 {
     "searches": [
         {
-            "name": "Jogging large",
-            "url": "https://www.vinted.fr/catalog?search_text=jogging%20large&search_id=21897046525&time=1742662684",
-            "channel_id": 1351664648788770949,
-            "enabled": true
-        },
-        {
-            "name": "Sneakers",
-            "url": "https://www.vinted.fr/catalog?search_text=sneakers&search_id=21914587777&time=1742663507&disabled_personalization=true&page=1&order=newest_first",
-            "channel_id": 1351659236932845618,
+            "name": "Carhartt",
+            "url": "https://www.vinted.fr/catalog?time=1742666187&disabled_personalization=true&catalog_from=0&brand_ids[]=362&page=1&search_id=21915882159&order=newest_first",
+            "channel_id": 1353064478165434499,
             "enabled": true
         }
     ]
