@@ -163,6 +163,37 @@ async def list_links(ctx):
         )
 
     await ctx.send(embed=embed)
+
+@bot.command()
+async def remove_link(ctx, nom: str):
+    """Supprime un lien Vinted dans links.json"""
+
+    # Charger links.json
+    try:
+        with open(LINKS_FILE, "r", encoding="utf-8") as file:
+            links_data = json.load(file)
+    except FileNotFoundError:
+        await ctx.send("❌ Aucun lien enregistré.")
+        return
+
+    # Chercher et supprimer le lien
+    found = False
+    for search in links_data["searches"]:
+        if search["name"] == nom:
+            links_data["searches"].remove(search)
+            found = True
+            break
+
+    if found:
+        # Sauvegarder les modifications dans links.json
+        with open(LINKS_FILE, "w", encoding="utf-8") as file:
+            json.dump(links_data, file, indent=4, ensure_ascii=False)
+        await ctx.send(f"✅ Le lien **{nom}** a été supprimé avec succès !")
+    else:
+        await ctx.send(f"❌ Aucun lien trouvé avec le nom **{nom}**.")
+
     
+
+
 
 bot.run(TOKEN)

@@ -5,6 +5,12 @@
             "url": "https://www.vinted.fr/catalog?time=1742666187&disabled_personalization=true&catalog_from=0&brand_ids[]=362&page=1&search_id=21915882159&order=newest_first",
             "channel_id": 1353064478165434499,
             "enabled": true
+        },
+        {
+            "name": "VesteCarhartt",
+            "url": "https://www.vinted.fr/catalog?time=1742734785&disabled_personalization=true&catalog_from=0&brand_ids[]=362&page=1&search_id=21915882159&order=newest_first&catalog[]=2052",
+            "channel_id": 1353352598543007784,
+            "enabled": true
         }
     ]
 }
