@@ -8,8 +8,10 @@ from dotenv import load_dotenv
 from scraper import scrape_vinted  # 🔥 Importation du scraper
 
 # Chargement des fichiers JSON
-CONFIG_FILE = "config.json"
-LINKS_FILE = "links.json"
+load_dotenv()
+CONFIG_FILE = str(os.getenv("CONFIG_FILE"))
+LINKS_FILE = str(os.getenv("LINKS_FILE"))
+TOKEN = str(os.getenv("TOKEN_BOT_DISCORD"))
 
 # Charger la configuration
 with open(CONFIG_FILE, "r", encoding="utf-8") as file:
@@ -24,9 +26,6 @@ if not os.path.exists(LINKS_FILE):
     with open(LINKS_FILE, "w", encoding="utf-8") as file:
         json.dump({"searches": []}, file, indent=4, ensure_ascii=False)
 
-# Charger les variables d'environnement
-load_dotenv()
-TOKEN = str(os.getenv("TOKEN_BOT_DISCORD"))
 
 # Initialisation du bot
 intents = discord.Intents.all()
@@ -139,7 +138,7 @@ async def list_links(ctx):
     """Affiche la liste des liens enregistrés"""
 
     try:
-        with open("links.json", "r", encoding="utf-8") as file:
+        with open(LINKS_FILE, "r", encoding="utf-8") as file:
             links_data = json.load(file)
     except FileNotFoundError:
         await ctx.send("❌ Aucun lien enregistré.")
@@ -191,9 +190,6 @@ async def remove_link(ctx, nom: str):
         await ctx.send(f"✅ Le lien **{nom}** a été supprimé avec succès !")
     else:
         await ctx.send(f"❌ Aucun lien trouvé avec le nom **{nom}**.")
-
-    
-
 
 
 bot.run(TOKEN)
